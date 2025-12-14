@@ -1,0 +1,11 @@
+# Heroku Docker Build Configuration
+# ==================================
+# This file tells Heroku to build using Docker
+
+build:
+  docker:
+    web: Dockerfile
+
+# Optional: Run commands after deploy
+# run:
+#   web: python -c "print('Deployed successfully!')"

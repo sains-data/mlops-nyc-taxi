@@ -1,0 +1,68 @@
+# Docker .dockerignore
+# ====================
+# Exclude files not needed in Docker image
+
+# Git
+.git
+.gitignore
+
+# Python
+__pycache__
+*.py[cod]
+*$py.class
+*.so
+.Python
+.venv
+venv/
+ENV/
+.eggs
+*.egg-info/
+.pytest_cache/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Data files (too large for image)
+data/
+*.parquet
+*.csv
+
+# MLflow artifacts (use mounted volumes instead)
+mlruns/
+mlartifacts/
+
+# Jupyter
+.ipynb_checkpoints/
+notebooks/
+
+# Reports
+reports/
+
+# Docker files
+docker-compose.yml
+docker/
+
+# Development
+*.log
+.env
+.env.local
+
+# Documentation
+*.md
+!README.md
+
+# Tests
+tests/
+test_*.py
+
+# Build artifacts
+dist/
+build/
+
+# Large model files (we copy production_model.joblib specifically)
+models/best_model.joblib
+models/tuned_model.joblib
+models/*.png

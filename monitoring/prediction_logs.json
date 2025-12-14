@@ -1,0 +1,268 @@
+[
+  {
+    "timestamp": "2025-12-13T11:04:01.623155",
+    "input": {
+      "trip_distance": 2.5,
+      "pickup_hour": 14,
+      "pickup_dayofweek": 2,
+      "passenger_count": 1,
+      "pickup_month": 1,
+      "PULocationID": 161,
+      "DOLocationID": 237,
+      "VendorID": 2
+    },
+    "prediction": 14.73
+  },
+  {
+    "timestamp": "2025-12-13T13:07:16.854599",
+    "input": {
+      "trip_distance": 6.3,
+      "pickup_hour": 6,
+      "pickup_dayofweek": 2,
+      "passenger_count": 2,
+      "pickup_month": 1,
+      "PULocationID": 161,
+      "DOLocationID": 237,
+      "VendorID": 2
+    },
+    "prediction": 33.86
+  },
+  {
+    "timestamp": "2025-12-13T13:16:12.186416",
+    "input": {
+      "trip_distance": 6.3,
+      "pickup_hour": 6,
+      "pickup_dayofweek": 2,
+      "passenger_count": 2,
+      "pickup_month": 1,
+      "PULocationID": 161,
+      "DOLocationID": 237,
+      "VendorID": 2
+    },
+    "prediction": 33.86
+  },
+  {
+    "timestamp": "2025-12-13T13:16:14.093966",
+    "input": {
+      "trip_distance": 6.3,
+      "pickup_hour": 6,
+      "pickup_dayofweek": 2,
+      "passenger_count": 2,
+      "pickup_month": 1,
+      "PULocationID": 161,
+      "DOLocationID": 237,
+      "VendorID": 2
+    },
+    "prediction": 33.86
+  },
+  {
+    "timestamp": "2025-12-13T13:16:23.348886",
+    "input": {
+      "trip_distance": 6.3,
+      "pickup_hour": 6,
+      "pickup_dayofweek": 2,
+      "passenger_count": 2,
+      "pickup_month": 1,
+      "PULocationID": 161,
+      "DOLocationID": 237,
+      "VendorID": 1
+    },
+    "prediction": 31.54
+  },
+  {
+    "timestamp": "2025-12-13T14:15:01.350761",
+    "input": {
+      "trip_distance": 1.1,
+      "pickup_hour": 1,
+      "pickup_dayofweek": 2,
+      "passenger_count": 1,
+      "pickup_month": 1,
+      "PULocationID": 161,
+      "DOLocationID": 237,
+      "VendorID": 2
+    },
+    "prediction": 7.92
+  },
+  {
+    "timestamp": "2025-12-14T00:26:42.193614",
+    "input": {
+      "trip_distance": 12.6,
+      "pickup_hour": 14,
+      "pickup_dayofweek": 2,
+      "passenger_count": 2,
+      "pickup_month": 1,
+      "PULocationID": 161,
+      "DOLocationID": 237,
+      "VendorID": 2
+    },
+    "prediction": 65.84
+  },
+  {
+    "timestamp": "2025-12-14T15:07:04.710201",
+    "input": {
+      "trip_distance": 9.3,
+      "pickup_hour": 4,
+      "pickup_dayofweek": 2,
+      "passenger_count": 2,
+      "pickup_month": 1,
+      "PULocationID": 161,
+      "DOLocationID": 237,
+      "VendorID": 2
+    },
+    "prediction": 48.7
+  },
+  {
+    "timestamp": "2025-12-14T15:10:11.615907",
+    "input": {
+      "trip_distance": 8.2,
+      "pickup_hour": 0,
+      "pickup_dayofweek": 2,
+      "passenger_count": 2,
+      "pickup_month": 1,
+      "PULocationID": 161,
+      "DOLocationID": 237,
+      "VendorID": 1
+    },
+    "prediction": 42.41
+  },
+  {
+    "timestamp": "2025-12-14T15:10:23.672281",
+    "input": {
+      "trip_distance": 8.2,
+      "pickup_hour": 1,
+      "pickup_dayofweek": 2,
+      "passenger_count": 2,
+      "pickup_month": 1,
+      "PULocationID": 161,
+      "DOLocationID": 237,
+      "VendorID": 1
+    },
+    "prediction": 42.48
+  },
+  {
+    "timestamp": "2025-12-14T15:10:53.460758",
+    "input": {
+      "trip_distance": 8.2,
+      "pickup_hour": 1,
+      "pickup_dayofweek": 2,
+      "passenger_count": 2,
+      "pickup_month": 1,
+      "PULocationID": 246,
+      "DOLocationID": 190,
+      "VendorID": 1
+    },
+    "prediction": 42.33
+  },
+  {
+    "timestamp": "2025-12-14T15:11:42.257046",
+    "input": {
+      "trip_distance": 10.4,
+      "pickup_hour": 1,
+      "pickup_dayofweek": 2,
+      "passenger_count": 2,
+      "pickup_month": 1,
+      "PULocationID": 263,
+      "DOLocationID": 198,
+      "VendorID": 2
+    },
+    "prediction": 53.6
+  },
+  {
+    "timestamp": "2025-12-14T15:12:07.080249",
+    "input": {
+      "trip_distance": 10.4,
+      "pickup_hour": 1,
+      "pickup_dayofweek": 0,
+      "passenger_count": 2,
+      "pickup_month": 1,
+      "PULocationID": 263,
+      "DOLocationID": 198,
+      "VendorID": 2
+    },
+    "prediction": 53.63
+  },
+  {
+    "timestamp": "2025-12-14T15:12:10.500377",
+    "input": {
+      "trip_distance": 10.4,
+      "pickup_hour": 1,
+      "pickup_dayofweek": 6,
+      "passenger_count": 2,
+      "pickup_month": 1,
+      "PULocationID": 263,
+      "DOLocationID": 198,
+      "VendorID": 2
+    },
+    "prediction": 53.66
+  },
+  {
+    "timestamp": "2025-12-14T15:12:11.468500",
+    "input": {
+      "trip_distance": 10.4,
+      "pickup_hour": 1,
+      "pickup_dayofweek": 6,
+      "passenger_count": 2,
+      "pickup_month": 1,
+      "PULocationID": 263,
+      "DOLocationID": 198,
+      "VendorID": 2
+    },
+    "prediction": 53.66
+  },
+  {
+    "timestamp": "2025-12-14T15:36:57.550552",
+    "input": {
+      "trip_distance": 6.0,
+      "pickup_hour": 2,
+      "pickup_dayofweek": 2,
+      "passenger_count": 2,
+      "pickup_month": 1,
+      "PULocationID": 161,
+      "DOLocationID": 237,
+      "VendorID": 2
+    },
+    "prediction": 32.66
+  },
+  {
+    "timestamp": "2025-12-14T15:36:58.087449",
+    "input": {
+      "trip_distance": 6.0,
+      "pickup_hour": 2,
+      "pickup_dayofweek": 2,
+      "passenger_count": 2,
+      "pickup_month": 1,
+      "PULocationID": 161,
+      "DOLocationID": 237,
+      "VendorID": 2
+    },
+    "prediction": 32.66
+  },
+  {
+    "timestamp": "2025-12-14T15:49:10.147150",
+    "input": {
+      "trip_distance": 8.2,
+      "pickup_hour": 0,
+      "pickup_dayofweek": 0,
+      "passenger_count": 2,
+      "pickup_month": 1,
+      "PULocationID": 246,
+      "DOLocationID": 190,
+      "VendorID": 1
+    },
+    "prediction": 42.38
+  },
+  {
+    "timestamp": "2025-12-14T15:50:34.667827",
+    "input": {
+      "trip_distance": 10.4,
+      "pickup_hour": 22,
+      "pickup_dayofweek": 0,
+      "passenger_count": 2,
+      "pickup_month": 1,
+      "PULocationID": 263,
+      "DOLocationID": 198,
+      "VendorID": 2
+    },
+    "prediction": 54.22
+  }
+]

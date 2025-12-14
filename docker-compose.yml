@@ -1,0 +1,111 @@
+# NYC Taxi MLOps - Docker Compose
+# ================================
+# Orchestrates all services for the MLOps pipeline
+
+version: '3.8'
+
+services:
+  # ==========================================
+  # MLFlow Tracking Server
+  # ==========================================
+  mlflow:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.mlflow
+    container_name: mlflow-server
+    ports:
+      - "5000:5000"
+    volumes:
+      - mlflow-data:/mlflow
+    networks:
+      - mlops-network
+    restart: unless-stopped
+
+  # ==========================================
+  # Model Training Service
+  # ==========================================
+  training:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.training
+    container_name: mlops-training
+    volumes:
+      - ./data:/app/data
+      - ./models:/app/models
+      - ./reports:/app/reports
+      - ./src:/app/src
+      - ./cli:/app/cli
+    environment:
+      - MLFLOW_TRACKING_URI=http://mlflow:5000
+    depends_on:
+      - mlflow
+    networks:
+      - mlops-network
+    # Run specific commands via docker-compose run
+    command: ["python", "cli/main.py", "--help"]
+
+  # ==========================================
+  # FastAPI Model Serving
+  # ==========================================
+  api:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.api
+    container_name: mlops-api
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./models:/app/models:ro
+      - ./src:/app/src:ro
+      - ./mlruns:/app/mlruns:ro
+    environment:
+      - MODEL_PATH=/app/models/production_model.joblib
+      - MLFLOW_TRACKING_URI=http://mlflow:5000
+    depends_on:
+      - mlflow
+    networks:
+      - mlops-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # ==========================================
+  # Jupyter Notebook (Development)
+  # ==========================================
+  jupyter:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.training
+    container_name: mlops-jupyter
+    ports:
+      - "8888:8888"
+    volumes:
+      - ./data:/app/data
+      - ./models:/app/models
+      - ./notebooks:/app/notebooks
+      - ./src:/app/src
+      - ./reports:/app/reports
+    environment:
+      - MLFLOW_TRACKING_URI=http://mlflow:5000
+    depends_on:
+      - mlflow
+    networks:
+      - mlops-network
+    command: ["jupyter", "notebook", "--ip=0.0.0.0", "--port=8888", "--no-browser", "--allow-root", "--NotebookApp.token=''"]
+
+# ==========================================
+# Networks
+# ==========================================
+networks:
+  mlops-network:
+    driver: bridge
+
+# ==========================================
+# Volumes
+# ==========================================
+volumes:
+  mlflow-data:
+    driver: local

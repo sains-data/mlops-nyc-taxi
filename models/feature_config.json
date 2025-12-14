@@ -1,0 +1,24 @@
+{
+  "features": [
+    "trip_distance",
+    "passenger_count",
+    "trip_duration_minutes",
+    "avg_speed_mph",
+    "pickup_hour",
+    "pickup_dayofweek",
+    "pickup_month",
+    "hour_sin",
+    "hour_cos",
+    "dow_sin",
+    "dow_cos",
+    "PULocationID",
+    "DOLocationID",
+    "VendorID",
+    "is_weekend",
+    "is_rush_hour",
+    "same_location",
+    "has_tolls"
+  ],
+  "target": "fare_amount",
+  "model_name": "random_forest"
+}

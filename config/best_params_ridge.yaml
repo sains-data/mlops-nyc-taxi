@@ -1,0 +1,9 @@
+model: ridge
+best_params:
+  alpha: 0.001267425589893723
+  solver: auto
+validation_metrics:
+  rmse: 4.848790975141934
+  mae: 1.945500808114737
+  r2: 0.9187750971239379
+  mape: 11.380614277351656
