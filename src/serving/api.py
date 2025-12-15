@@ -184,12 +184,24 @@ async def model_info():
     if model is None:
         raise HTTPException(status_code=503, detail="Model not loaded")
     
+    # Get metrics if available
+    metrics = model.get("metrics", {})
+    
     return {
         "model_name": model.get("model_name", "nyc-taxi-fare"),
         "model_type": model.get("model_type", "unknown"),
         "version": model.get("version", "unknown"),
         "num_features": len(model.get("features", [])),
-        "features": model.get("features", [])
+        "features": model.get("features", []),
+        "metrics": {
+            "mae": metrics.get("mae"),
+            "rmse": metrics.get("rmse"),
+            "mse": metrics.get("mse"),  # loss
+            "mape": metrics.get("mape"),
+            "r2": metrics.get("r2")
+        },
+        "created_at": model.get("created_at"),
+        "mlflow_version": model.get("mlflow_version")
     }
 
 @app.get("/monitoring/drift", tags=["Monitoring"])

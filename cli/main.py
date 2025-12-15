@@ -308,7 +308,7 @@ def list_runs(
             except (ValueError, TypeError):
                 r2_str = 'N/A'
             
-            table.add_row(row['run_id'][:16] + "...", model, rmse_str, mae_str, r2_str)
+            table.add_row(row['run_id'], model, rmse_str, mae_str, r2_str)
         
         console.print(table)
         console.print(f"\n[cyan]Tip: Use full run_id with 'registry register <run_id>'[/]")

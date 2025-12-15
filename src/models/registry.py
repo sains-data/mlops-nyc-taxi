@@ -199,6 +199,19 @@ class ModelRegistry:
             # Try to get algorithm name from tags
             algorithm = mv.tags.get('algorithm', run.data.params.get('model_type', 'random_forest'))
             
+            # Get metrics from MLflow run
+            run_metrics = run.data.metrics
+            metrics = {
+                'mae': run_metrics.get('val_mae', run_metrics.get('mae', None)),
+                'rmse': run_metrics.get('val_rmse', run_metrics.get('rmse', None)),
+                'mse': run_metrics.get('val_mse', run_metrics.get('mse', None)),  # loss
+                'mape': run_metrics.get('val_mape', run_metrics.get('mape', None)),
+                'r2': run_metrics.get('val_r2', run_metrics.get('r2', None)),
+            }
+            # Calculate MSE from RMSE if not available
+            if metrics['mse'] is None and metrics['rmse'] is not None:
+                metrics['mse'] = metrics['rmse'] ** 2
+            
             # Create model package (same format as api.py expects)
             model_package = {
                 'model': model,
@@ -206,6 +219,7 @@ class ModelRegistry:
                 'model_type': type(model).__name__,
                 'version': f"1.0.{version}",
                 'features': feature_names,
+                'metrics': metrics,  # Added metrics!
                 'created_at': datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
                 'mlflow_version': version,
                 'mlflow_run_id': mv.run_id
