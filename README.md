@@ -219,13 +219,13 @@ Project ini di-deploy ke Heroku dengan **auto-deploy** dari GitHub:
 
 **Kemas Veriandra Ramadhan**
 
-**Ahmad Sahidin**
+**Ahmad Sahidin Akbar**
 
 **Eli Dwi Putra Berema**
 
 **Nisrina Nur Afifah**
 
-**Khalishah Alya Vanefi**
+**⁠Khaalishah Zuhrah Alyaa V.**
 
 ---
 
