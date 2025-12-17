@@ -251,9 +251,14 @@ async def get_drift_metrics():
         # Import Evidently (0.7+ API)
         from evidently import Report
         from evidently.presets import DataDriftPreset
+        import time
         
         # Load reference data
+        logger.info("Loading reference data (10K sample)...")
+        start_time = time.time()
         ref_df = pd.read_parquet(REFERENCE_SAMPLE_FILE)
+        load_time = time.time() - start_time
+        logger.info(f"Loaded {len(ref_df):,} rows in {load_time:.2f} seconds")
         
         # Build current DataFrame from recent predictions
         recent_logs = logs[-100:]  # Last 100 predictions
@@ -270,8 +275,12 @@ async def get_drift_metrics():
         
         # Run Evidently drift report with adjusted thresholds (more tolerant)
         # num_threshold=0.3 for numerical columns, cat_threshold=0.3 for categorical
+        logger.info(f"Running Evidently drift detection on {len(ref_df):,} reference rows...")
+        evidently_start = time.time()
         report = Report(metrics=[DataDriftPreset(drift_share=0.5, num_threshold=0.3, cat_threshold=0.3)])
         snapshot = report.run(reference_data=ref_df, current_data=curr_df)
+        evidently_time = time.time() - evidently_start
+        logger.info(f"Evidently completed in {evidently_time:.2f} seconds")
         
         # Extract results (Evidently - run() returns snapshot)
         result_dict = snapshot.dict()
